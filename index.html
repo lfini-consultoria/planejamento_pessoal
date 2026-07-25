@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planejamento Financeiro Pessoal — Organize sua vida financeira</title>
+<title>Planejamento Financeiro Pessoal | Organize sua vida financeira</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     --blue-100:#E8EEFC;
     --blue-50:#F3F6FE;
     --bg:#FFFFFF;
-    --bg-soft:#F6F7FB;
+    --bg-soft:#EEF1F8;
     --text-dark:#16213D;
     --text-gray:#5B6478;
     --text-mute:#8B93A7;
@@ -153,7 +153,10 @@
   .section-top{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
   .section-top h2{ font-size:clamp(26px,3.2vw,36px); line-height:1.15; margin-top:14px; max-width:560px; }
   .section-sub{ color:var(--text-gray); font-size:15.5px; margin-top:12px; max-width:520px; }
-  .bg-soft{ background:var(--bg-soft); }
+  .bg-soft{ background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .trust-grid-3{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:960px){ .trust-grid-3{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .trust-grid-3{ grid-template-columns:1fr; } }
 
   /* ---------- problema ---------- */
   .problema-grid{ display:grid; grid-template-columns:1fr 0.85fr; gap:56px; align-items:center; }
@@ -183,11 +186,12 @@
     padding:28px 24px; transition:box-shadow .2s ease, transform .2s ease;
   }
   .area-card:hover{ box-shadow:0 16px 32px rgba(20,30,60,0.08); transform:translateY(-2px); }
+  .area-card .head{ display:flex; align-items:center; gap:14px; margin-bottom:10px; }
   .area-card .ic{
-    width:46px; height:46px; border-radius:12px; background:var(--blue-100);
-    display:flex; align-items:center; justify-content:center; color:var(--blue-600); margin-bottom:16px;
+    width:40px; height:40px; border-radius:11px; background:var(--blue-100);
+    display:flex; align-items:center; justify-content:center; color:var(--blue-600); flex-shrink:0;
   }
-  .area-card h3{ font-size:16.5px; margin-bottom:8px; }
+  .area-card h3{ font-size:16px; }
   .area-card p{ font-size:14px; color:var(--text-gray); }
   .areas-cta{
     margin-top:36px; display:flex; align-items:center; justify-content:space-between;
@@ -204,10 +208,11 @@
     padding:36px 40px;
     display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
   }
-  .p-step .num{ font-size:15px; font-weight:800; color:var(--text-mute); display:flex; align-items:center; gap:10px; }
+  .p-step .head-row{ display:flex; align-items:center; gap:14px; }
+  .p-step .num{ font-size:15px; font-weight:800; color:var(--text-mute); display:flex; align-items:center; gap:10px; flex-shrink:0; }
   .p-step .num .rule{ width:26px; height:1.5px; background:var(--text-mute); display:inline-block; }
-  .p-step h3{ font-size:21px; margin-top:10px; }
-  .p-step p{ font-size:14.5px; margin-top:8px; max-width:440px; }
+  .p-step h3{ font-size:20px; }
+  .p-step p{ font-size:14.5px; margin-top:10px; max-width:440px; }
   .p-step .icon-box{
     width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
@@ -353,13 +358,6 @@
 <header>
   <div class="wrap nav">
     <div class="logo"><span class="mark">§</span> Planejamento Financeiro</div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#areas">Áreas</a>
-      <a href="#processo">Processo</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#faq">FAQ</a>
-    </nav>
     <div class="nav-cta">
       <a href="#agendar" class="btn btn-primary nav-btn">Agendar reunião</a>
     </div>
@@ -369,21 +367,12 @@
 <section class="hero" id="home" style="padding:0;">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow on-dark"><span class="dot"></span> Educação e planejamento financeiro</span>
-      <h1>Sua vida financeira organizada, sem <span class="accent">terceirizar</span> suas decisões</h1>
-      <p class="sub">Um plano claro para sair das dívidas, organizar o orçamento ou começar a investir — feito com você, no seu ritmo, sem venda de produto financeiro.</p>
+      <span class="eyebrow on-dark"><span class="dot"></span> Planejamento financeiro pessoal</span>
+      <h1>Sua vida financeira planejada para alcançar seus <span class="accent">objetivos</span></h1>
+      <p class="sub">Um plano claro para sair das dívidas, organizar o orçamento ou começar a investir. Feito com você, no seu ritmo, sem venda de produto financeiro.</p>
       <div class="cta-row">
         <a href="#agendar" class="btn btn-white">Agendar reunião gratuita</a>
         <a href="#" class="btn btn-outline">WhatsApp</a>
-      </div>
-      <div class="trust-row">
-        <div class="trust-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FB0FF" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <div>
-          <div class="t-title">Processo estruturado e documentado</div>
-          <div class="t-sub">Atendimento em todo o Brasil, 100% online</div>
-        </div>
       </div>
     </div>
     <div class="hero-photo">
@@ -412,27 +401,27 @@
     <div>
       <span class="eyebrow">O problema real</span>
       <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,36px); line-height:1.18;">Não é falta de esforço. É falta de método.</h2>
-      <p class="section-sub" style="margin-bottom:28px;">Sem um plano estruturado e acompanhamento real, o dinheiro parece sempre insuficiente — mesmo quando a renda aumenta.</p>
+      <p class="section-sub" style="margin-bottom:28px;">Sem um plano estruturado e acompanhamento real, o dinheiro parece sempre insuficiente, mesmo quando a renda aumenta.</p>
       <div class="problem-cards">
         <div class="p-card">
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
           <div>
             <h3>Falta de visão clara</h3>
-            <p>Você sabe que devia ter controle sobre seu dinheiro, mas nunca sobra tempo — ou clareza — para organizar.</p>
+            <p>Você sabe que devia ter controle sobre seu dinheiro, mas nunca sobra tempo, ou clareza, para organizar.</p>
           </div>
         </div>
         <div class="p-card">
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
           <div>
             <h3>Objetivo sempre adiado</h3>
-            <p>Cada mês parece igual: recebe, paga contas, some. E a meta maior — dívida zerada, reserva, investir — fica sempre pra depois.</p>
+            <p>Cada mês parece igual: recebe, paga contas, some. E a meta maior, dívida zerada, reserva, investir, fica sempre pra depois.</p>
           </div>
         </div>
         <div class="p-card">
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"/><path d="M4 15l4-5 4 3 4-7 4 4"/></svg></div>
           <div>
             <h3>Tentativas que não colam</h3>
-            <p>Você já tentou planilha, aplicativo, "força de vontade" — e nada virou hábito por mais de duas semanas.</p>
+            <p>Você já tentou planilha, aplicativo, "força de vontade", e nada virou hábito por mais de duas semanas.</p>
           </div>
         </div>
       </div>
@@ -451,38 +440,50 @@
       <div>
         <span class="eyebrow">Onde eu posso ajudar</span>
         <h2>Escolha por onde sua situação pega hoje</h2>
-        <p class="section-sub">Educação e planejamento em cada frente — sem indicação de produto, sem intermediação de seguro.</p>
+        <p class="section-sub">Educação e planejamento em cada frente, sem indicação de produto, sem intermediação de seguro.</p>
       </div>
     </div>
     <div class="areas-grid">
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
-        <h3>Orçamento e controle de gastos</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <h3>Orçamento e controle de gastos</h3>
+        </div>
         <p>Organizar entrada e saída, entender pra onde o dinheiro vai e criar um sistema que você consegue manter.</p>
       </div>
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <h3>Dívidas</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <h3>Dívidas</h3>
+        </div>
         <p>Mapear o que você deve, priorizar e montar estratégia de quitação.</p>
       </div>
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
-        <h3>Investimentos</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
+          <h3>Investimentos</h3>
+        </div>
         <p>Entender por classe de ativo o que faz sentido pro seu momento, sem indicação de produto específico.</p>
       </div>
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Aposentadoria</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Aposentadoria</h3>
+        </div>
         <p>Traduzir "quero me aposentar bem" em meta e número concretos.</p>
       </div>
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
-        <h3>Seguros</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
+          <h3>Seguros</h3>
+        </div>
         <p>Entender o que você já tem coberto e onde há brecha, sem venda de apólice.</p>
       </div>
       <div class="area-card">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
-        <h3>Financiamentos</h3>
+        <div class="head">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+          <h3>Financiamentos</h3>
+        </div>
         <p>Comparar modalidades antes de assumir uma dívida grande, como casa ou carro.</p>
       </div>
     </div>
@@ -504,33 +505,33 @@
     <div class="process-list">
       <div class="p-step step-1">
         <div>
-          <div class="num"><span class="rule"></span>01</div>
-          <h3>Reunião gratuita</h3>
-          <p>Mapeamento inicial da sua situação e apresentação clara do método — 30 minutos, sem compromisso.</p>
+          <div class="head-row"><div class="num"><span class="rule"></span>01</div>
+          <h3>Reunião gratuita</h3></div>
+          <p>Mapeamento inicial da sua situação e apresentação clara do método. 30 minutos, sem compromisso.</p>
         </div>
         <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
       </div>
       <div class="p-step step-2">
         <div>
-          <div class="num"><span class="rule"></span>02</div>
-          <h3>Escolha do caminho</h3>
-          <p>Diagnóstico avulso, para uma avaliação pontual, ou acompanhamento contínuo, com plano de ação e execução.</p>
+          <div class="head-row"><div class="num"><span class="rule"></span>02</div>
+          <h3>Diagnóstico completo</h3></div>
+          <p>Avaliação completa da sua situação atual, com acompanhamento contínuo, plano de ação e execução.</p>
         </div>
         <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6"/></svg></div>
       </div>
       <div class="p-step step-3">
         <div>
-          <div class="num"><span class="rule"></span>03</div>
-          <h3>Onboarding e plano de ação</h3>
-          <p>Levantamento detalhado na primeira sessão e construção do seu plano — metas, prazos e prioridades.</p>
+          <div class="head-row"><div class="num"><span class="rule"></span>03</div>
+          <h3>Levantamento dos dados</h3></div>
+          <p>Levantamento detalhado das finanças e construção do plano de ação com metas, prazos e prioridades.</p>
         </div>
         <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 6.6L21 10l-5 4.4L17.4 21 12 17.3 6.6 21 8 14.4 3 10l6.6-1.4z"/></svg></div>
       </div>
       <div class="p-step step-4">
         <div>
-          <div class="num"><span class="rule"></span>04</div>
-          <h3>Acompanhamento contínuo</h3>
-          <p>Reuniões mensais e suporte via WhatsApp em horário comercial, até você atingir os objetivos combinados.</p>
+          <div class="head-row"><div class="num"><span class="rule"></span>04</div>
+          <h3>Acompanhamento contínuo</h3></div>
+          <p>Reuniões mensais e suporte via WhatsApp até você atingir os objetivos combinados.</p>
         </div>
         <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
       </div>
@@ -542,15 +543,9 @@
   <div class="wrap sobre-grid">
     <div>
       <span class="eyebrow">Sobre o profissional</span>
-      <h2>Clareza para você decidir — não decisão terceirizada, nem venda disfarçada de conselho.</h2>
-      <p class="sub">Formação em planejamento financeiro e metodologia própria para organizar orçamento, dívidas e metas — sem vínculo com bancos, corretoras ou seguradoras. O trabalho aqui é 100% educação e planejamento, não venda de produto.</p>
-      <div class="credential">
-        <div class="c-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <div>
-          <div class="c-title">Educação e planejamento financeiro</div>
-          <div class="c-sub">Sem registro CVM/SUSEP — fora do escopo de recomendação de produto</div>
-        </div>
-      </div>
+      <h2>Leonardo Fini, especialista em planejamento financeiro pessoal</h2>
+      <p class="sub">Com formação sólida em finanças e mais de 10 anos de experiência na área, é responsável por planejar e estruturar estratégias que unem organização, inteligência financeira e crescimento de patrimônio. Seu trabalho é baseado em análise profunda, atendimento personalizado e visão de longo prazo.</p>
+      <p class="sub" style="margin-top:14px;">Cada plano é construído individualmente com foco no que realmente importa: proteger, otimizar e potencializar o patrimônio dos seus clientes com segurança e autonomia.</p>
     </div>
     <div class="sobre-photo">
       <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#8FA0CC" stroke-width="1.4">
@@ -570,26 +565,21 @@
         <h2>Como eu trabalho</h2>
       </div>
     </div>
-    <div class="trust-grid">
+    <div class="trust-grid trust-grid-3">
+      <div class="trust-card">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12c1.5-4 5-6 9-6s7.5 2 9 6c-1.5 4-5 6-9 6s-7.5-2-9-6z"/></svg></div>
+        <h3>Foco em você</h3>
+        <p>Orçamento, dívidas e metas de longo prazo, não venda de produto.</p>
+      </div>
       <div class="trust-card">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
         <h3>Sem vínculo</h3>
         <p>Nenhuma ligação com bancos, corretoras ou seguradoras.</p>
       </div>
       <div class="trust-card">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/></svg></div>
-        <h3>Sem comissão</h3>
-        <p>Nenhuma comissão sobre produto financeiro que você venha a contratar.</p>
-      </div>
-      <div class="trust-card">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
         <h3>Sigilo total</h3>
         <p>Levantamento e recomendações tratados com confidencialidade.</p>
-      </div>
-      <div class="trust-card">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12c1.5-4 5-6 9-6s7.5 2 9 6c-1.5 4-5 6-9 6s-7.5-2-9-6z"/></svg></div>
-        <h3>Foco em você</h3>
-        <p>Orçamento, dívidas e metas de longo prazo — não venda de produto.</p>
       </div>
     </div>
   </div>
@@ -643,22 +633,6 @@
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="logo"><span class="mark">§</span> Planejamento Financeiro</div>
-      <div class="foot-links">
-        <a href="#areas">Áreas</a>
-        <a href="#processo">Processo</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#faq">FAQ</a>
-        <a href="#agendar">Agendar reunião</a>
-      </div>
-    </div>
-    <p class="foot-note">Serviço de educação e organização financeira pessoal. Não constitui consultoria de valores mobiliários (CVM) nem intermediação de seguros (SUSEP). Não há recomendação de produtos financeiros específicos.</p>
-  </div>
-</footer>
 
 <script>
   document.querySelectorAll('[data-toggle]').forEach(function(btn){
