@@ -118,7 +118,7 @@
     display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
     padding:76px 0 64px;
   }
-  .hero h1{ color:#fff; font-size:clamp(32px,4.6vw,50px); line-height:1.1; margin-top:18px; }
+  .hero h1{ color:#fff; font-size:clamp(32px,4.6vw,50px); line-height:1.15; margin-top:18px; overflow-wrap:break-word; word-break:normal; hyphens:none; }
   .hero h1 .accent{ color:#8FB0FF; }
   .hero .sub{ color:#C7D0E6; font-size:17.5px; max-width:460px; margin-top:20px; }
   .hero .cta-row{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
@@ -205,16 +205,15 @@
   .process-list{ display:flex; flex-direction:column; gap:16px; }
   .p-step{
     border-radius:var(--radius-lg);
-    padding:36px 40px;
-    display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
+    padding:28px 32px;
   }
   .p-step .head-row{ display:flex; align-items:center; gap:14px; }
-  .p-step .num{ font-size:15px; font-weight:800; color:var(--text-mute); display:flex; align-items:center; gap:10px; flex-shrink:0; }
-  .p-step .num .rule{ width:26px; height:1.5px; background:var(--text-mute); display:inline-block; }
-  .p-step h3{ font-size:20px; }
+  .p-step .num{ font-size:13px; font-weight:800; color:var(--text-mute); display:flex; align-items:center; gap:8px; flex-shrink:0; margin-left:auto; }
+  .p-step .num .rule{ width:20px; height:1.5px; background:var(--text-mute); display:inline-block; }
+  .p-step h3{ font-size:18px; flex:1; }
   .p-step p{ font-size:14.5px; margin-top:10px; max-width:440px; }
   .p-step .icon-box{
-    width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
   .step-1{ background:#fff; border:1px solid var(--line); }
@@ -375,9 +374,9 @@
   }
   @media (max-width:600px){
     section{ padding:60px 0; }
+    .hero{ overflow-x:hidden; }
+    .hero h1{ font-size:clamp(26px,7.5vw,34px); }
     .areas-grid{ grid-template-columns:1fr; }
-    .p-step{ grid-template-columns:1fr; text-align:left; }
-    .p-step .icon-box{ order:-1; }
     .badge-float{ position:static; margin-top:16px; }
     .btn-full-mobile{ width:100%; text-align:center; justify-content:center; }
     body{ padding-bottom:68px; }
@@ -421,7 +420,7 @@
   <div class="wrap problema-grid">
     <div>
       <span class="eyebrow">O problema real</span>
-      <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,36px); line-height:1.18;">Não é falta de esforço. É falta de método.</h2>
+      <h2 style="margin-top:16px; font-size:clamp(26px,3.2vw,36px); line-height:1.18; text-wrap:balance;">Não é falta de esforço. É falta de&nbsp;método.</h2>
       <p class="section-sub" style="margin-bottom:28px;">Sem um plano estruturado e acompanhamento real, o dinheiro parece sempre insuficiente, mesmo quando a renda aumenta.</p>
       <div class="problem-cards">
         <div class="p-card">
@@ -435,7 +434,7 @@
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
           <div>
             <h3>Objetivo sempre adiado</h3>
-            <p>Cada mês parece igual: recebe, paga contas, some. E a meta maior, dívida zerada, reserva, investir, fica sempre pra depois.</p>
+            <p>Cada mês parece igual, recebe, paga as contas e o dinheiro some. E os objetivos, dívidas quitadas, reserva e investimentos ficam sempre para depois.</p>
           </div>
         </div>
         <div class="p-card">
@@ -493,8 +492,8 @@
     <div class="section-top">
       <div>
         <span class="eyebrow">Onde eu posso ajudar</span>
-        <h2>Escolha por onde sua situação pega hoje</h2>
-        <p class="section-sub">Educação e planejamento em cada frente, sem indicação de produto, sem intermediação de seguro.</p>
+        <h2>Veja onde sua situação pede atenção agora</h2>
+        <p class="section-sub">Planejamento em cada frente, personalizado para você de acordo com sua situação e objetivos.</p>
       </div>
     </div>
     <div class="areas-grid">
@@ -517,7 +516,7 @@
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
           <h3>Investimentos</h3>
         </div>
-        <p>Entender por classe de ativo o que faz sentido pro seu momento, sem indicação de produto específico.</p>
+        <p>Entender por classe de ativo o que faz sentido pro seu momento, respeitando seu perfil.</p>
       </div>
       <div class="area-card">
         <div class="head">
@@ -531,7 +530,7 @@
           <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
           <h3>Seguros</h3>
         </div>
-        <p>Entender o que você já tem coberto e onde há brecha, sem venda de apólice.</p>
+        <p>Avaliar o que você já tem coberto e identificar possíveis vulnerabilidades.</p>
       </div>
       <div class="area-card">
         <div class="head">
@@ -542,7 +541,7 @@
       </div>
     </div>
     <div class="areas-cta">
-      <p>Se uma (ou mais de uma) dessas áreas é a sua, a reunião gratuita é o próximo passo.</p>
+      <p>Se você se identificou com uma (ou mais de uma) dessas áreas, a reunião gratuita é o próximo passo.</p>
       <a href="#agendar" class="btn btn-primary">Agendar minha reunião gratuita</a>
     </div>
   </div>
@@ -558,36 +557,36 @@
     </div>
     <div class="process-list">
       <div class="p-step step-1">
-        <div>
-          <div class="head-row"><div class="num"><span class="rule"></span>01</div>
-          <h3>Reunião gratuita</h3></div>
-          <p>Mapeamento inicial da sua situação e apresentação clara do método. 30 minutos, sem compromisso.</p>
+        <div class="head-row">
+          <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
+          <h3>Reunião gratuita</h3>
+          <div class="num"><span class="rule"></span>01</div>
         </div>
-        <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
+        <p>Mapeamento inicial da sua situação e apresentação clara do método. 30 minutos, sem compromisso.</p>
       </div>
       <div class="p-step step-2">
-        <div>
-          <div class="head-row"><div class="num"><span class="rule"></span>02</div>
-          <h3>Diagnóstico completo</h3></div>
-          <p>Avaliação completa da sua situação atual, com acompanhamento contínuo, plano de ação e execução.</p>
+        <div class="head-row">
+          <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6"/></svg></div>
+          <h3>Diagnóstico completo</h3>
+          <div class="num"><span class="rule"></span>02</div>
         </div>
-        <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6"/></svg></div>
+        <p>Avaliação completa da sua situação atual, com acompanhamento contínuo, plano de ação e execução.</p>
       </div>
       <div class="p-step step-3">
-        <div>
-          <div class="head-row"><div class="num"><span class="rule"></span>03</div>
-          <h3>Levantamento dos dados</h3></div>
-          <p>Levantamento detalhado das finanças e construção do plano de ação com metas, prazos e prioridades.</p>
+        <div class="head-row">
+          <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 6.6L21 10l-5 4.4L17.4 21 12 17.3 6.6 21 8 14.4 3 10l6.6-1.4z"/></svg></div>
+          <h3>Levantamento dos dados</h3>
+          <div class="num"><span class="rule"></span>03</div>
         </div>
-        <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 6.6L21 10l-5 4.4L17.4 21 12 17.3 6.6 21 8 14.4 3 10l6.6-1.4z"/></svg></div>
+        <p>Levantamento detalhado das finanças e construção do plano de ação com metas, prazos e prioridades.</p>
       </div>
       <div class="p-step step-4">
-        <div>
-          <div class="head-row"><div class="num"><span class="rule"></span>04</div>
-          <h3>Acompanhamento contínuo</h3></div>
-          <p>Reuniões mensais e suporte via WhatsApp até você atingir os objetivos combinados.</p>
+        <div class="head-row">
+          <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
+          <h3>Acompanhamento contínuo</h3>
+          <div class="num"><span class="rule"></span>04</div>
         </div>
-        <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
+        <p>Reuniões mensais e suporte via WhatsApp até você atingir os objetivos combinados.</p>
       </div>
     </div>
   </div>
@@ -597,7 +596,7 @@
   <div class="wrap sobre-grid">
     <div>
       <span class="eyebrow">Sobre o profissional</span>
-      <h2>Leonardo Fini, especialista em planejamento financeiro pessoal</h2>
+      <h2>Leonardo Fini, especialista em Planejamento Financeiro Pessoal</h2>
       <p class="sub">Com formação sólida em finanças e mais de 10 anos de experiência na área, é responsável por planejar e estruturar estratégias que unem organização, inteligência financeira e crescimento de patrimônio. Seu trabalho é baseado em análise profunda, atendimento personalizado e visão de longo prazo.</p>
       <p class="sub" style="margin-top:14px;">Cada plano é construído individualmente com foco no que realmente importa: proteger, otimizar e potencializar o patrimônio dos seus clientes com segurança e autonomia.</p>
     </div>
