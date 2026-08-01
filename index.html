@@ -351,6 +351,59 @@
     body{ padding-bottom:68px; }
     .final-cta{ padding:44px 28px; }
   }
+
+  /* ---------- modal de captação ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(8,23,26,0.6);
+    display:none; align-items:center; justify-content:center;
+    padding:20px; opacity:0; transition:opacity .25s ease;
+    overflow-y:auto;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal-overlay.show{ opacity:1; }
+  .modal-box{
+    background:#fff; border-radius:var(--radius-lg); max-width:460px; width:100%;
+    padding:36px 30px 28px; position:relative; text-align:left;
+    transform:translateY(14px); transition:transform .25s ease;
+    max-height:90vh; overflow-y:auto;
+  }
+  .modal-overlay.show .modal-box{ transform:translateY(0); }
+  .modal-close{
+    position:absolute; top:16px; right:16px; width:32px; height:32px;
+    border:none; background:none; cursor:pointer; color:var(--on-secundaria-mute);
+    font-size:22px; line-height:1; display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{ color:var(--principal); }
+  .modal-box h3{ font-size:21px; font-weight:800; color:var(--principal); margin-bottom:6px; }
+  .modal-box .modal-sub{ color:var(--on-secundaria-mute); font-size:14px; margin-bottom:22px; }
+  .modal-form .m-group{ margin-bottom:13px; }
+  .modal-form label{ display:block; font-size:12.5px; font-weight:700; color:var(--principal); margin-bottom:5px; }
+  .modal-form input, .modal-form select{
+    width:100%; padding:11px 13px; border:1px solid var(--line-on-secundaria); border-radius:10px;
+    font-family:'Plus Jakarta Sans',sans-serif; font-size:14.5px; color:var(--on-secundaria); background:#fff;
+  }
+  .modal-form input:focus, .modal-form select:focus{ outline:none; border-color:var(--principal); }
+  .modal-form button[type="submit"]{ width:100%; justify-content:center; margin-top:6px; }
+  .modal-form button[type="submit"]:disabled{ opacity:.6; cursor:not-allowed; }
+  .modal-status{ font-size:13px; margin-top:12px; text-align:center; display:none; }
+  .modal-status.ok{ display:block; color:var(--principal); }
+  .modal-status.err{ display:block; color:#b23b3b; }
+
+  /* ---------- botão flutuante whatsapp ---------- */
+  .whatsapp-float{
+    position:fixed; bottom:24px; right:24px; z-index:150;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .whatsapp-float:hover{ transform:scale(1.07); box-shadow:0 8px 22px rgba(0,0,0,.3); }
+  .whatsapp-float svg{ width:30px; height:30px; fill:#fff; }
+  @media(max-width:600px){
+    .whatsapp-float{ bottom:80px; width:52px; height:52px; }
+    .whatsapp-float svg{ width:26px; height:26px; }
+  }
 </style>
 </head>
 <body>
@@ -362,7 +415,7 @@
       <h1>Sua vida financeira planejada para alcançar seus <span class="accent">objetivos</span></h1>
       <p class="sub">Um plano claro para sair das dívidas, organizar o orçamento ou começar a investir. Feito com você, no seu ritmo, sem venda de produto financeiro.</p>
       <div class="cta-row">
-        <a href="#agendar" class="btn btn-white btn-full-mobile">Agendar reunião gratuita</a>
+        <a href="#agendar" class="btn btn-white btn-full-mobile js-cta">Agendar reunião gratuita</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -492,7 +545,7 @@
     </div>
     <div class="areas-cta">
       <p>Se você se identificou com uma ou mais dessas áreas, a reunião gratuita é o próximo passo.</p>
-      <a href="#agendar" class="btn btn-primary">Agendar minha reunião gratuita</a>
+      <a href="#agendar" class="btn btn-primary js-cta">Agendar minha reunião gratuita</a>
     </div>
   </div>
 </section>
@@ -608,7 +661,7 @@
       <span class="eyebrow">FAQ</span>
       <h2 style="margin-top:16px; font-size:clamp(24px,3vw,32px); line-height:1.2; color:var(--principal);">Dúvidas frequentes</h2>
       <p class="section-sub" style="margin-bottom:26px;">Respostas rápidas sobre o atendimento e o processo.</p>
-      <a href="#agendar" class="btn btn-primary">Falar com o especialista</a>
+      <a href="#agendar" class="btn btn-primary js-cta">Falar com o especialista</a>
     </div>
     <div class="faq-list">
       <div class="faq-item" data-open="false">
@@ -639,8 +692,7 @@
         <h2>Pronto para dar o próximo passo?</h2>
         <p class="sub" style="color:var(--on-principal-mute); margin-top:14px;">Reunião gratuita de 30 minutos, sem compromisso. Você sai sabendo exatamente qual é o seu próximo passo.</p>
         <div class="cta-row">
-          <a href="#" class="btn btn-white">Agendar reunião gratuita</a>
-          <a href="#" class="btn btn-outline">WhatsApp</a>
+          <a href="#agendar" class="btn btn-white js-cta">Agendar reunião gratuita</a>
         </div>
       </div>
     </div>
@@ -651,7 +703,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <div class="foot-logo"><span class="mark">F</span> Fini Capital</div>
+        <div class="foot-logo"><img src="fini-capital-logo-principal.svg" alt="Fini Capital" style="height:40px;width:auto;"></div>
         <p class="foot-tagline">Planejamento financeiro pessoal, sem venda de produto.</p>
       </div>
       <div class="foot-col">
@@ -668,18 +720,59 @@
       <div class="foot-col">
         <h4>Contato</h4>
         <div class="foot-contact">
-          <span>WhatsApp: (11) 91234-5678</span>
-          <span>contato@finicapital.com.br</span>
-          <span>@finicapital</span>
+          <span>WhatsApp: (11) 99563-9380</span>
+          <span>contato.leofini@gmail.com</span>
+          <span>Rua Pais Leme, 215 · São Paulo/SP</span>
         </div>
       </div>
     </div>
-    <p class="foot-note">Serviço de educação e organização financeira pessoal. Não constitui consultoria de valores mobiliários (CVM) nem intermediação de seguros (SUSEP). Não há recomendação de produtos financeiros específicos. Fini Capital Ltda &middot; CNPJ 12.345.678/0001-90 &middot; São Paulo/SP</p>
+    <p class="foot-note">Serviço de educação e organização financeira pessoal. Não constitui consultoria de valores mobiliários (CVM) nem intermediação de seguros (SUSEP). Não há recomendação de produtos financeiros específicos.</p>
   </div>
 </footer>
 
 <div class="float-cta">
-  <a href="#agendar" class="btn btn-primary">Agendar reunião gratuita</a>
+  <a href="#agendar" class="btn btn-primary js-cta">Agendar reunião gratuita</a>
+</div>
+
+<a href="https://wa.me/5511995639380?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Fini%20Capital%20e%20gostaria%20de%20falar%20sobre%20planejamento%20financeiro." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.87 11.87L4 20l4.24-1.11a7.93 7.93 0 0 0 3.8.97h.003a7.94 7.94 0 0 0 5.58-13.54zM12.05 18.53a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.51.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.59-.98 6 6 0 0 1-1.1-1.37c-.12-.2 0-.31.09-.4s.2-.24.29-.35a1.3 1.3 0 0 0 .2-.33.37.37 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.73.73 0 0 0-.53.25 2.24 2.24 0 0 0-.69 1.66 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.42 3.02 3.9 3.9 0 0 0 2.4.5 2.05 2.05 0 0 0 1.35-.95 1.67 1.67 0 0 0 .12-.95c-.05-.09-.18-.14-.38-.24z"/></svg>
+</a>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+    <h3>Agende sua reunião gratuita</h3>
+    <p class="modal-sub">Preencha os dados abaixo. Retornamos em até 1 dia útil.</p>
+    <form class="modal-form" id="modalForm">
+      <div class="m-group">
+        <label for="modal-nome">Nome / Empresa</label>
+        <input type="text" id="modal-nome" name="nome" placeholder="Seu nome ou nome da empresa" required>
+      </div>
+      <div class="m-group">
+        <label for="modal-email">E-mail</label>
+        <input type="email" id="modal-email" name="email" placeholder="voce@email.com" required>
+      </div>
+      <div class="m-group">
+        <label for="modal-telefone">Telefone</label>
+        <input type="tel" id="modal-telefone" name="telefone" placeholder="(00) 00000-0000" required>
+      </div>
+      <div class="m-group">
+        <label for="modal-assunto">Assunto principal</label>
+        <select id="modal-assunto" name="assunto" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="Diagnóstico">Diagnóstico</option>
+          <option value="Planejamento/Orçamento">Planejamento/Orçamento</option>
+          <option value="Investimentos">Investimentos</option>
+          <option value="Dívidas">Dívidas</option>
+          <option value="Crédito">Crédito</option>
+          <option value="Seguros">Seguros</option>
+          <option value="Outro Assunto">Outro Assunto</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar solicitação</button>
+      <p class="modal-status" id="modalStatus"></p>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -690,6 +783,75 @@
       document.querySelectorAll('.faq-item').forEach(function(i){ i.setAttribute('data-open','false'); });
       item.setAttribute('data-open', isOpen ? 'false' : 'true');
     });
+  });
+
+  /* ===== CAPTAÇÃO DE LEADS: modal + envio para Google Sheets ===== */
+  const LEAD_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxiXV1usHiBV-pvPK38EcN4h91lsZdSAmGiR51Gcc9pGJT21N_ODzf9xQcM9M7DDn8K/exec';
+
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalForm = document.getElementById('modalForm');
+  const modalStatus = document.getElementById('modalStatus');
+
+  function openModal(){
+    modalOverlay.classList.add('open');
+    requestAnimationFrame(()=> modalOverlay.classList.add('show'));
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modalOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(()=> modalOverlay.classList.remove('open'), 250);
+  }
+
+  document.querySelectorAll('.js-cta').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      e.preventDefault();
+      openModal();
+    });
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e)=>{
+    if(e.target === modalOverlay) closeModal();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+  });
+
+  async function sendLead(form, statusEl){
+    const btn = form.querySelector('button[type="submit"]');
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.origem = 'Popup CTA - Página Planejamento Pessoal';
+    data.pagina = window.location.href;
+
+    btn.disabled = true;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Enviando...';
+    statusEl.className = 'modal-status';
+    statusEl.textContent = '';
+
+    try{
+      await fetch(LEAD_ENDPOINT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data)
+      });
+      statusEl.textContent = 'Recebemos sua solicitação. Em breve entraremos em contato.';
+      statusEl.className = 'modal-status ok';
+      form.reset();
+      setTimeout(closeModal, 1800);
+    }catch(err){
+      statusEl.textContent = 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.';
+      statusEl.className = 'modal-status err';
+    }finally{
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+
+  modalForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    sendLead(modalForm, modalStatus);
   });
 </script>
 
